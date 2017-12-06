@@ -50,6 +50,27 @@ When recursively solving a problem we want to take 4 steps ([see brilliant.org f
 
 ### Practice Recursion
 
+In JavaScript, a function is available within its own scope. That sounds abstract but it is simple when demonstrated:
+
+```javascript
+// Be careful not to write a function like this that will loop forever:
+function loop () {
+  loop()
+}
+
+loop() // Error: Too Much Recursion
+
+// We always want to provide a base case to our function that will break the cycle
+
+function doTimes (cb, n) {
+  cb(n)
+  if (n > 1) doTimes(cb, n - 1)
+}
+
+doTimes((count) => console.log(`${count}: hello world!`), 5)
+
+```
+
 #### Factorial
 
 Implement the definition of factorial from above in JavaScript
